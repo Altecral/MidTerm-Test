@@ -1,0 +1,28 @@
+<h1>Employee List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Contact Number</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (let index = 0; index < EmployeeList.length; index++) { %>
+      <tr>
+        <td><%= EmployeeList[index].name %></td>
+        <td><%= EmployeeList[index].address %></td>
+        <td><%= EmployeeList[index].contactNumber %></td>
+        <td>
+          <form action="/employees/delete/<%= EmployeeList[index]._id %>" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<a href="/employees/add">Add Employee</a>
